@@ -5,7 +5,7 @@ import sys
 import threading
 
 # ChatGPT API client
-openai.api_key = "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"
+openai.api_key = "api key enter here"
 
 engine = pyttsx3.init()
 
@@ -15,7 +15,6 @@ engine.setProperty('voice', voice[0].id)
 
 engine.setProperty('volume', 1.0)
 
-# rate at which the words are spoken
 engine.setProperty('rate', 150)
 
 r = sr.Recognizer()
@@ -58,11 +57,9 @@ while True:
     response = generate_response(prompt)
     speak(response)
 
-    # Set up a timer to interrupt the text-to-speech engine after 10 seconds
     timer = threading.Timer(10.0, engine.stop)
     timer.start()
 
-    # Speak the response
     response = generate_response(prompt)
     speak(response)
 
